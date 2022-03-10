@@ -73,6 +73,8 @@ def prep_telco(df=acquire.get_telco_data()):
         ],
         axis=1,
     )
+    # drop the columns that have been converted to dummies
+    df = df.drop(columns=["contract_type", "internet_service_type", "payment_type"])
     return df
 
 
