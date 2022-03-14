@@ -37,6 +37,9 @@ def prep_titanic(df=acquire.get_titanic_data()):
 
 
 def prep_telco(df=acquire.get_telco_data()):
+    # make autopay column where payment type id 1,2 is 0(no autopay)
+    # payment type id and 3,4 is 1(autopay)
+    df["autopay"] = (df.payment_type_id > 2).astype(int)
     # drop repetitive columns
     df = df.drop(
         columns=[
@@ -67,7 +70,7 @@ def prep_telco(df=acquire.get_telco_data()):
                 pd.get_dummies(
                     df[["contract_type", "internet_service_type", "payment_type"]],
                     dummy_na=False,
-                    drop_first=True,
+                    drop_first=False,  # i did not drop first to make it more human readable
                 )
             ),
         ],
@@ -93,4 +96,4 @@ def split_data(df, y_value):
     y_validate = validate[y_value]
     x_test = test.drop(columns=[y_value])
     y_test = test[y_value]
-    return x_train, y_train, x_validate, y_validate, x_test, y_test
+    return x_train, y_train, x_validate, y_validate, x_test, y_test, train, validate, test

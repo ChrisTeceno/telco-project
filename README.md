@@ -48,14 +48,18 @@ DATA DICTIONARY
  14  monthly_charges                       monthly charges in dollar and cents dd.cc   
  15  total_charges                         total charges over total contract
  16  churn                                 1 = churned
+ 17  autopay                               1 = has autopay
  DUMMY VARIABLES
- 17  contract_type_One year                1 = one year contract     
- 18  contract_type_Two year                1 = two year contract (both 0 means month to month)    
- 19  internet_service_type_Fiber optic     1 = fiber     
- 20  internet_service_type_None            1 = no internet (both 0 = dsl)    
- 21  payment_type_Credit card (automatic)  1 = credit card     
- 22  payment_type_Electronic check         1 = electronic check     
- 23  payment_type_Mailed check             1 = mailed check (all 0 = bank transfer(automatic)
+ 18  contract_type_Month-to-month          1 = month to month contract  
+ 19  contract_type_One year                1 = one year contract     
+ 20  contract_type_Two year                1 = two year contract 
+ 21  internet_service_type_DSL             1 = DSL
+ 22  internet_service_type_Fiber optic     1 = fiber     
+ 23  internet_service_type_None            1 = no internet  
+ 24  payment_type_Bank transfer (automatic)1 = bank transfer(automatic)
+ 25  payment_type_Credit card (automatic)  1 = credit card     
+ 26  payment_type_Electronic check         1 = electronic check     
+ 27  payment_type_Mailed check             1 = mailed check
 
 THE PLAN
 
